@@ -1,2 +1,7 @@
-- name: Check pull request
-  uses: michaelpanderson/check_pull_request_branch
+steps:
+- uses:  michaelpanderson/check_pull_request_branch@main
+  with:
+    regex: '([a-z])+' # Regex the title should match.
+
+
+
