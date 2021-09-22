@@ -1,0 +1,2 @@
+name: Check pull request
+  uses: michaelpanderson/check_pull_request_branch@d02a3c804d05ace2504423a69365a69822f92147
