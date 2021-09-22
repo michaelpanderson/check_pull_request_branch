@@ -1,29 +1,14 @@
-- name: Pull Request Ticket Check Action
-  # You may pin to the exact commit or the version.
-  # uses: neofinancial/ticket-check-action@070ce45952a2bb3ad2bcd6aa26c51668916443fd
-  uses: neofinancial/ticket-check-action@v1.3.3
-  with:
-    # The unique identifier for the ticket/issue
-    ticketPrefix: # optional, default is 
-    # The intended format the title should be set to if it doesn't match the regular expression. Available variables are `%prefix%`, `%id%`, and `%title%`
-    titleFormat: # default is %prefix%%id%: %title%
-    # The regular expression used to search the title for the intended format
-    titleRegex: # default is ^(CH)(-?)(\d{3,})
-    # The regular expression flags applied to the title regular expression
-    titleRegexFlags: # default is gi
-    # The regular expression used to search the branch for the intended format
-    branchRegex: # default is ^(CH)(-?)(\d{3,})
-    # The regular expression flags applied to the branch regular expression
-    branchRegexFlags: # default is gi
-    # The regular expression used to search the body for a shorthand reference
-    bodyRegex: # default is (CH)(-?)(\d{3,})
-    # The flags applied to the body regular expression when searching for a shorthand reference
-    bodyRegexFlags: # default is gim
-    # The regular expression used to search the body for a URL reference
-    bodyURLRegex: # default is http(s?):\/\/(app.clubhouse.io)(\/neofinancial)(\/story)\/\d+
-    # The flags applied to the body regular expression when searching for a URL reference
-    bodyURLRegexFlags: # default is gim
-    # User(s) who will be exempt from the ticket check rules. Particularly useful for automated/bot PRs
-    exemptUsers: # optional, default is 
-    # Suppress comment on successful PR title update
-    quiet: # optional, default is true
+name: build
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout project
+      uses: michaelpanderson/check_pull_request_branch@main
+     
