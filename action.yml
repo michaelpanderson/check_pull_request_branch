@@ -7,6 +7,6 @@ branding:
 runs:
   using:  "composite"
   steps:
-    - uses: actions/checkout@v2
+    - uses: michaelpanderson/check_pull_request_branch@main
     - run: ${{ github.action_path }}/check_pr.sh
       shell: bash
